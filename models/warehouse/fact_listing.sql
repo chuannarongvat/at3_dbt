@@ -12,7 +12,8 @@ select
     h.host_neighbourhood,
     case
         when h.host_neighbourhood = 'Unknown' then 'Unknown'
-        else s.lga_name
+        when h.host_neighbourhood = 'Overseas' then 'Overseas'
+        else coalesce(s.lga_name, 'Unknown') 
     end as host_neighbourhood_lga,
     f.listing_neighbourhood,
     n.lga_code as listing_lga_code,

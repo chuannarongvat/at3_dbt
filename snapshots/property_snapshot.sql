@@ -9,7 +9,7 @@
     )
 }}
 
-select listing_id, scraped_date, listing_neighbourhood, property_type
+select scraped_date, listing_id, property_type
 from {{ source('raw', 'listings') }}
 
 {% endsnapshot %}
